@@ -1,0 +1,54 @@
+<div style="text-align: left; margin-bottom: 20px;">
+  <h1>
+    {{ title }}
+  </h1>
+</div>
+
+<div>
+  <table *ngIf="arrBooks" id="booksTable">
+    <!-- Add the headers! -->
+    <tr>
+        <th>ID</th>
+          <th>Book Name</th>
+            <th>Category</th>
+              <th>Price ($)</th>
+    </tr>
+
+    <!-- Bind the array "arrBooks" to the table. -->
+    <tr *ngFor="let book of arrBooks">
+      <td>{{book.BookID}}</td>
+        <td>{{book.BookName}}</td>
+          <td>{{book.Category}}</td>
+            <td>{{book.Price}}</td>
+
+        <!-- Operations -->
+        <td>
+          <label id="lbl{{book.BookID}}" (click)="cancelAction($event)" style="display: none;">✖</label>
+          <button id="update{{book.BookID}}" (click)="update($event)" style="background-color: #5DB75F; color: #FFF;">Update</button> 
+          <button id="save{{book.BookID}}" (click)="save($event)" style="display: none;">Save</button>
+        </td>
+        <td>
+          <button id="delete" (click)="delete($event)" style="background-color: #D45449; color: #FFF;">Delete</button>
+        </td>
+    </tr>
+
+    <!-- Last row will have the "Create" option. -->
+    <tr>
+      <td></td>
+      <td><input type="text" id="txtBookName" value=""></td>
+      <td *ngIf="arrCategories">
+          <!-- Add a SELECT dropdown list. -->
+          <select id="sel">
+            <option>-- select --</option>
+            <option *ngFor="let cat of arrCategories" value="{{cat}}">
+              {{cat}}
+            </option>
+          </select>
+      </td>
+      <td><input type="text" id="price" value=""></td>
+      <td>
+        <button id="btCreate" (click)="createNew($event)">Create</button>
+      </td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,20 @@
+<h1>Welcome</h1>
+
+<div class="play-container">
+    <p>
+         UserName :  <input (input)="UserName=$event.target.value" required type="text"  />
+    </p>
+</div>
+<div class="play-container">
+    <p>
+         Password :  <input (input)="Password=$event.target.value" required type="text" />
+    </p>
+</div>
+<div class="play-container">
+    <p><span (click)="CheckLogin()">Login</span></p>
+</div>
+<div *ngIf="message" class="play-container">
+    <p>
+        {{ message }}
+    </p>
+</div>

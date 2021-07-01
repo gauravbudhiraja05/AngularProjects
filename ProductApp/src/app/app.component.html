@@ -1,0 +1,42 @@
+<h1>Angular Http Post Example</h1>
+
+<div class="play-container">
+    <p><span (click)="GetProducts()" class="button">Get All Products</span></p>
+</div>
+<ul *ngIf="items">
+    <li *ngFor="let item of items">
+        <p class="name"> <strong>Id</strong>  : {{ item.id }}</p>
+        <p class="name"> <strong>Name</strong>  : {{ item.name }}</p>
+        <p class="name"> <strong>Brand</strong>  : {{ item.brand }}</p>
+        <p class="name"> <strong>Created Date</strong>  : {{ item.createdDate }}</p>
+    </li>
+</ul>
+<div class="play-container">
+    <p><span (click)="GetProductById()" class="button">Get Product By Id</span></p>
+</div>
+<ul *ngIf="Id">
+    <li>
+        <p class="name"> <strong>Id</strong>  : {{ Id }}</p>
+        <p class="name"> <strong>Name</strong>  : {{ Name }}</p>
+        <p class="name"> <strong>Brand</strong>  : {{ Brand }}</p>
+        <p class="name"> <strong>Created Date</strong>  : {{ CreatedDate }}</p>
+    </li>
+</ul>
+<div class="play-container">
+    <p><span (click)="AddProduct()" class="button">Add Product</span></p>
+</div>
+<p *ngIf="AddMessage">
+   {{ AddMessage }}
+</p>
+<div class="play-container">
+    <p><span (click)="UpdateProduct()" class="button">Update Product</span></p>
+</div>
+<p *ngIf="UpdateMessage">
+    {{ UpdateMessage }}
+ </p>
+<div class="play-container">
+    <p><span (click)="DeleteProduct()" class="button">Delete Product</span></p>
+</div>
+<p *ngIf="DeleteMessage">
+    {{ DeleteMessage }}
+ </p>

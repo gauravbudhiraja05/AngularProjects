@@ -1,0 +1,88 @@
+<div class="container">
+
+  <form [formGroup]="UserForm" (ngSubmit)="this[EventValue]()">
+
+    <h3>userloyee Table CRUD Operation</h3>
+    <div class="row">
+
+      <table class="table">
+        <tr>
+          <td>Name</td>
+          <td>
+            <input type="hidden" formControlName="userId">
+            <input type="text" formControlName="userName">
+            <div *ngIf="submitted && UserForm.controls.userName.errors" class="text-danger">
+              <div *ngIf="UserForm.controls.userName.errors.required">Name is required</div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Age</td>
+          <td><input type="text" formControlName="userAge">
+            <div *ngIf="submitted && UserForm.controls.userAge.errors" class="text-danger">
+              <div *ngIf="UserForm.controls.userAge.errors.required">Age is required</div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Contact</td>
+          <td><input type="text" formControlName="userContact">
+            <div *ngIf="submitted && UserForm.controls.userContact.errors" class="text-danger">
+              <div *ngIf="UserForm.controls.userContact.errors.required">Contact is required</div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td>
+            <input type="text" formControlName="userEmail">
+            <div *ngIf="submitted && UserForm.controls.userEmail.errors" class="text-danger">
+              <div *ngIf="UserForm.controls.userEmail.errors.required">Email is required</div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Address</td>
+          <td>
+            <input type="text" formControlName="userAddress">
+            <div *ngIf="submitted && UserForm.controls.userAddress.errors" class="text-danger">
+              <div *ngIf="UserForm.controls.userAddress.errors.required">Address is required</div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <button type="submit" class="btn btn-primary">{{EventValue}}</button>
+          </td>
+        </tr>
+
+      </table>
+    </div>
+
+    <div class="row">
+      <table class="table table-striped">
+        <tr>
+          <td>Id</td>
+          <td>Name</td>
+          <td>Age</td>
+          <td>Contact</td>
+          <td>Email</td>
+          <td>Address</td>
+          <td>Edit</td>
+          <td>Delete</td>
+        </tr>
+
+        <tr *ngFor="let d of userData">
+          <td>{{d.userId}}</td>
+          <td>{{d.userName}}</td>
+          <td>{{d.userAge}}</td>
+          <td>{{d.userContact}}</td>
+          <td>{{d.userEmail}}</td>
+          <td>{{d.userAddress}}</td>
+          <td><a (click)="EditUser(d)" class="btn btn-warning">Edit</a></td>
+          <td><a (click)="DeleteUser(d.userId)" class="btn btn-danger">Delete</a></td>
+        </tr>
+      </table>
+    </div>
+  </form>
+</div>
